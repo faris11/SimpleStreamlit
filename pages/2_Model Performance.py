@@ -41,7 +41,7 @@ if st.button("Hasil"):
     #Evaluate the models
     accuracy1 = accuracy_score(y_test, y_pred1)
     metric1 = classification_report(y_test, y_pred1, output_dict=True)
-    st.success(f"Hasil Prediksi: {metric1}")
+    st.success(f"Model {type(model1).__name__}")
 
     a, b = st.columns(2)
     c, d = st.columns(2)
