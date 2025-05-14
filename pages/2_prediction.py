@@ -25,7 +25,17 @@ y = dataset['variety']
 #Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=t_size, random_state=42)
 
-y_pred1 = model1.predict(X_test)
+#Load Model
+@st.cache_resource
+def load_model(path):
+    model = joblib.load(path)
+    return model
 
-#Evaluate the models
-accuracy1 = accuracy_score(y_test, y_pred1)
+model1 = load_model('model/decision_tree_model.joblib')
+
+# Prediksi saat tombol ditekan
+if st.button("Hasil"):
+    y_pred1 = model1.predict(X_test)
+    #Evaluate the models
+    accuracy1 = accuracy_score(y_test, y_pred1)  
+    st.success(f"Hasil Prediksi: {accuracy1}")
