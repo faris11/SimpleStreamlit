@@ -48,7 +48,7 @@ if st.button("Hasil"):
 
     acc1 = metric1[0]*100
     a.metric("Accuracy", acc1, "-9°F", border=True)
-    b.metric("Precision", metric1["macro avg"]*100+"%", "2 mph", border=True)
+    b.metric("Precision", metric1["macro avg"]*100, "2 mph", border=True)
 
     c.metric("Humidity", "77%", "5%", border=True)
     d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
