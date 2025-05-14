@@ -53,5 +53,5 @@ if st.button("Hasil"):
 
     rec1 = metric1["macro avg"]["recall"]*100
     fsc1 = metric1["macro avg"]["f1-score"]*100
-    c.metric("Recall", f"{rec1}%"rec1, delta=None, border=True)
+    c.metric("Recall", f"{rec1}%", delta=None, border=True)
     d.metric("F1-Score", f"{fsc1}%", delta=None, border=True)
