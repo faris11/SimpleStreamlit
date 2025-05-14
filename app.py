@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import joblib
 
 st.set_page_config(page_title="Aplikasi Streamlit Sederhana", layout="centered")
 
