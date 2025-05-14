@@ -20,3 +20,27 @@ df = pd.read_csv("model/iris.csv")
 # Tampilkan dataframe
 st.subheader("📁 Isi Data Iris")
 st.dataframe(df)
+
+# Load model
+@st.cache_resource
+def load_model():
+    with open("model/decision_tree_model.pkl", "rb") as f:
+        return pickle.load(f)
+
+model = load_model()
+
+st.write("Masukkan data input di bawah ini:")
+
+# Input fitur
+sep-len = st.number_input("Sepal Length", min_value=0, max_value=8, value=2)
+sep-wid = st.number_input("Sepal Width", min_value=0, max_value=8, value=2)
+pet-len = st.number_input("Petal Length", min_value=0, max_value=8, value=2)
+pet-wid = st.number_input("Petal Width", min_value=0, max_value=8, value=2)
+
+# Prediksi saat tombol ditekan
+if st.button("Prediksi"):
+    input_data = pd.DataFrame([[sep-len, sep-wid, pet-len, pet-wid]],
+                              columns=["Sepal Length", "Sepal Width", "Petal Length", "Petal Width"])
+    
+    hasil = model.predict(input_data)
+    st.success(f"Hasil Prediksi: {hasil[0]}")
