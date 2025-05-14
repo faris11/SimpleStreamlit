@@ -40,16 +40,16 @@ if st.button("Hasil"):
     y_pred1 = model1.predict(X_test)
     #Evaluate the models
     accuracy1 = accuracy_score(y_test, y_pred1)
-    metric1 = classification_report(y_test, y_pred1)
+    metric1 = classification_report(y_test, y_pred1, output_dict=True)
     st.success(f"Hasil Prediksi: {metric1}")
 
     a, b = st.columns(2)
     c, d = st.columns(2)
 
-    acc1 = metric1[0]*100
+    acc1 = metric1["accuracy"]*100
     prec1 = metric1["macro avg"]["precision"]*100
-    a.metric("Accuracy", acc1, "-9°F", border=True)
-    b.metric("Precision", prec1, "2 mph", border=True)
+    a.metric("Accuracy", f"{acc1:.2f}%", delta=None, border=True)
+    b.metric("Precision", f"{prec1:.2f}%", delta=None, border=True)
 
     c.metric("Humidity", "77%", "5%", border=True)
     d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
