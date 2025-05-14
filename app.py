@@ -23,10 +23,10 @@ st.subheader("📁 Isi Data Iris")
 st.dataframe(df)
 
 # Load model
-'''@st.cache_resource
-def load_model():
-    with open("model/decision_tree_model.pkl", "rb") as f:
-        return pickle.load(f)'''
+# @st.cache_resource
+#def load_model():
+#    with open("model/decision_tree_model.pkl", "rb") as f:
+#        return pickle.load(f)
 
 @st.cache_resource
 def load_model():
