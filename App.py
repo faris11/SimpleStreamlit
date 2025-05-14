@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 import pickle
 import joblib
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Aplikasi Streamlit Sederhana", layout="centered")
 
-st.title("🎈 Selamat datang di Aplikasi Streamlit Sederhana!")
-st.write("Aplikasi ini dibuat untuk demonstrasi deploy langsung dari GitHub.")
+st.title("🎈 Selamat datang di Aplikasi Streamlit Sederhana")
+st.write("Aplikasi ini dibuat untuk demonstrasi projek akhir Data Mining.")
 
 # Input interaktif
 name = st.text_input("Siapa nama Anda?")
@@ -19,31 +21,18 @@ df = pd.read_csv("model/iris.csv")
 st.subheader("📁 Isi Data Iris")
 st.dataframe(df)
 
-# Load model cari FIPP, Coding, Report
-# @st.cache_resource
-#def load_model():
-#    with open("model/decision_tree_model.pkl", "rb") as f:
-#        return pickle.load(f)
+#df['target'] = data.target
+df['label'] = df['variety'].map({0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'})
+class_counts = df['label'].value_counts()
 
-@st.cache_resource
-def load_model():
-    model = joblib.load('model/decision_tree_model.joblib')
-    return model
+#Distribusi Kelas
+st.subheader("Distribusi Jumlah Data Berdasarkan Kelas")
+fig, ax = plt.subplots(figsize=(6, 4))
+sns.barplot(x=class_counts.index, y=class_counts.values, palette=["red", "green", "yellow"], ax=ax)
+ax.set_ylabel("Jumlah Data")
+ax.set_xlabel("Varietas")
+ax.set_title("Distribusi Kelas Iris")
+st.pyplot(fig)
 
-model = load_model()
-
-st.write("Masukkan data input di bawah ini:")
-
-# Input fitur
-seplen = st.number_input("Sepal Length", min_value=0.0, max_value=8.0, value=2.0)
-sepwid = st.number_input("Sepal Width", min_value=0.0, max_value=8.0, value=2.0)
-petlen = st.number_input("Petal Length", min_value=0.0, max_value=8.0, value=2.0)
-petwid = st.number_input("Petal Width", min_value=0.0, max_value=8.0, value=2.0)
-
-# Prediksi saat tombol ditekan
-if st.button("Prediksi"):
-    input_data = pd.DataFrame([[seplen, sepwid, petlen, petwid]],
-                              columns=["sepal.length", "sepal.width", "petal.length", "petal.width"])
-    
-    hasil = model.predict(input_data)
-    st.success(f"Hasil Prediksi: {hasil[0]}")
+#Korelasi Fitur
+st.subheader("Korelasi antar Fitur dalam Dataset")
