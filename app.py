@@ -33,14 +33,14 @@ model = load_model()
 st.write("Masukkan data input di bawah ini:")
 
 # Input fitur
-sep-len = st.number_input("Sepal Length", min_value=0, max_value=8, value=2)
-sep-wid = st.number_input("Sepal Width", min_value=0, max_value=8, value=2)
-pet-len = st.number_input("Petal Length", min_value=0, max_value=8, value=2)
-pet-wid = st.number_input("Petal Width", min_value=0, max_value=8, value=2)
+seplen = st.number_input("Sepal Length", min_value=0, max_value=8, value=2)
+sepwid = st.number_input("Sepal Width", min_value=0, max_value=8, value=2)
+petlen = st.number_input("Petal Length", min_value=0, max_value=8, value=2)
+petwid = st.number_input("Petal Width", min_value=0, max_value=8, value=2)
 
 # Prediksi saat tombol ditekan
 if st.button("Prediksi"):
-    input_data = pd.DataFrame([[sep-len, sep-wid, pet-len, pet-wid]],
+    input_data = pd.DataFrame([[seplen, sepwid, petlen, petwid]],
                               columns=["Sepal Length", "Sepal Width", "Petal Length", "Petal Width"])
     
     hasil = model.predict(input_data)
