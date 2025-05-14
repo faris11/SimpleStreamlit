@@ -23,7 +23,7 @@ df = pd.read_csv("model/iris.csv")
 st.subheader("📁 Isi Data Iris")
 st.dataframe(df)
 
-# Load model
+# Load model cari FIPP, Coding, Report
 # @st.cache_resource
 #def load_model():
 #    with open("model/decision_tree_model.pkl", "rb") as f:
@@ -39,10 +39,10 @@ model = load_model()
 st.write("Masukkan data input di bawah ini:")
 
 # Input fitur
-seplen = st.number_input("Sepal Length", min_value=0, max_value=8.0, value=2.0)
-sepwid = st.number_input("Sepal Width", min_value=0, max_value=8.0, value=2.0)
-petlen = st.number_input("Petal Length", min_value=0, max_value=8.0, value=2.0)
-petwid = st.number_input("Petal Width", min_value=0, max_value=8.0, value=2.0)
+seplen = st.number_input("Sepal Length", min_value=0.0, max_value=8.0, value=2.0)
+sepwid = st.number_input("Sepal Width", min_value=0.0, max_value=8.0, value=2.0)
+petlen = st.number_input("Petal Length", min_value=0.0, max_value=8.0, value=2.0)
+petwid = st.number_input("Petal Width", min_value=0.0, max_value=8.0, value=2.0)
 
 # Prediksi saat tombol ditekan
 if st.button("Prediksi"):
