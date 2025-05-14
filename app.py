@@ -23,20 +23,25 @@ st.subheader("📁 Isi Data Iris")
 st.dataframe(df)
 
 # Load model
-@st.cache_resource
+'''@st.cache_resource
 def load_model():
     with open("model/decision_tree_model.pkl", "rb") as f:
-        return pickle.load(f)
+        return pickle.load(f)'''
+
+@st.cache_resource
+def load_model():
+    model = joblib.load('model/decision_tree_model.joblib')
+    return model
 
 model = load_model()
 
 st.write("Masukkan data input di bawah ini:")
 
 # Input fitur
-seplen = st.number_input("Sepal Length", min_value=0, max_value=8, value=2)
-sepwid = st.number_input("Sepal Width", min_value=0, max_value=8, value=2)
-petlen = st.number_input("Petal Length", min_value=0, max_value=8, value=2)
-petwid = st.number_input("Petal Width", min_value=0, max_value=8, value=2)
+seplen = st.number_input("Sepal Length", min_value=0, max_value=8.0, value=2.0)
+sepwid = st.number_input("Sepal Width", min_value=0, max_value=8.0, value=2.0)
+petlen = st.number_input("Petal Length", min_value=0, max_value=8.0, value=2.0)
+petwid = st.number_input("Petal Width", min_value=0, max_value=8.0, value=2.0)
 
 # Prediksi saat tombol ditekan
 if st.button("Prediksi"):
