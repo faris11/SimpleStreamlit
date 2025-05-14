@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, accuracy_score
 
 st.set_page_config(page_title="Prediction", page_icon="📈")
 st.header("Predictions")
@@ -38,5 +39,6 @@ model1 = load_model('model/decision_tree_model.joblib')
 if st.button("Hasil"):
     y_pred1 = model1.predict(X_test)
     #Evaluate the models
-    accuracy1 = accuracy_score(y_test, y_pred1)  
+    accuracy1 = accuracy_score(y_test, y_pred1)
+    metric1 = classification_report(y_test, y_pred1)
     st.success(f"Hasil Prediksi: {accuracy1}")
