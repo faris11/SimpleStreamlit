@@ -20,8 +20,8 @@ st.dataframe(df)
 
 st.write(df.columns.tolist())
 #df[target] = data target
-df['label'] = df['variety'].map({0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'})
-class_counts = df['label'].value_counts()
+#df['label'] = df['variety'].map({0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'})
+class_counts = df['variety'].value_counts()
 
 #Distribusi Kelas
 st.subheader("Distribusi Jumlah Data Berdasarkan Kelas")
