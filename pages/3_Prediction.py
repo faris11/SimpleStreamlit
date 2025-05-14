@@ -1,6 +1,8 @@
 import streamlit as st
 
+st.set_page_config(page_title="Prediction", page_icon="📈")
 st.header("Prediction")
+
 st.write("Make a prediction using a new data")
 
 a, b = st.columns(2)
