@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Iris Dashboard App", layout="centered")
+st.sidebar.header("Dashboard")
 
 st.title("🎈 Selamat datang di Aplikasi Streamlit Sederhana")
 st.write("Aplikasi ini dibuat untuk demonstrasi projek akhir Data Mining.")
