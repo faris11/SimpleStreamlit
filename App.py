@@ -10,15 +10,11 @@ st.set_page_config(page_title="Aplikasi Streamlit Sederhana", layout="centered")
 st.title("🎈 Selamat datang di Aplikasi Streamlit Sederhana")
 st.write("Aplikasi ini dibuat untuk demonstrasi projek akhir Data Mining.")
 
-# Input interaktif
-name = st.text_input("Siapa nama Anda?")
-if name:
-    st.success(f"Halo, {name}! 👋")
-
+#Load Dataset
 df = pd.read_csv("model/iris.csv")
 
 # Tampilkan dataframe
-st.subheader("📁 Isi Data Iris")
+st.subheader("📁 Dataset Iris")
 st.dataframe(df)
 
 #df['target'] = data.target
@@ -36,3 +32,8 @@ st.pyplot(fig)
 
 #Korelasi Fitur
 st.subheader("Korelasi antar Fitur dalam Dataset")
+
+# Input interaktif
+name = st.text_input("Siapa nama Anda?")
+if name:
+    st.success(f"Halo, {name}! 👋")
