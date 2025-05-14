@@ -1,4 +1,5 @@
 import streamlit as st
+from sklearn.model_selection import train_test_split
 
 st.set_page_config(page_title="Prediction", page_icon="📈")
 st.header("Predictions")
