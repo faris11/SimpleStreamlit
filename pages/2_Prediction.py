@@ -16,7 +16,7 @@ st.subheader("📁 Iris Dataset")
 st.dataframe(dataset)
 
 #Test Size
-testing = st.slider("Data Testing", min_value=0, max_value=100, value=10)
+testing = st.slider("Data Testing", min_value=10, max_value=90, value=20)
 st.write(f"Nilai yang dipilih: {testing}")
 t_size = testing/100
 
