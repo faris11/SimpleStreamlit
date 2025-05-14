@@ -46,7 +46,7 @@ if st.button("Hasil"):
     a, b = st.columns(2)
     c, d = st.columns(2)
 
-    acc1 = metric1["accuracy"]*100
+    acc1 = metric1[0]*100
     a.metric("Accuracy", acc1, "-9°F", border=True)
     b.metric("Precision", metric1["macro avg"]*100+"%", "2 mph", border=True)
 
