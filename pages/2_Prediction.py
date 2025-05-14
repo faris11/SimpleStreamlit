@@ -25,7 +25,6 @@ y = dataset['variety']
 #Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=t_size, random_state=42)
 
-#Load Model
 @st.cache_resource
 def load_model(path):
     model = joblib.load(path)
