@@ -5,4 +5,5 @@ st.header("Predictions")
 
 st.markdown("#Prediction")
 
-testing = st.slider("Data Testing", min_value=10, max_value=100)
+testing = st.slider("Data Testing", min_value=10, max_value=100, value=10)
+st.write(f"Nilai yang dipilih: {testing}")
