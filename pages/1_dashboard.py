@@ -1,3 +1,4 @@
 import streamlit as st
 
-st.header("Dashboard")
+st.set_page_config(page_title="Dashboard", page_icon="📈")
+st.sidebar.header("Dashboard")
