@@ -42,3 +42,12 @@ if st.button("Hasil"):
     accuracy1 = accuracy_score(y_test, y_pred1)
     metric1 = classification_report(y_test, y_pred1)
     st.success(f"Hasil Prediksi: {metric1}")
+
+    a, b = st.columns(2)
+    c, d = st.columns(2)
+
+    a.metric("Accuracy", metric1["accuracy"]*100+"%", "-9°F", border=True)
+    b.metric("Precision", metric1["macro avg"]*100+"%", "2 mph", border=True)
+
+    c.metric("Humidity", "77%", "5%", border=True)
+    d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
