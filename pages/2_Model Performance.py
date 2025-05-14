@@ -48,8 +48,10 @@ if st.button("Hasil"):
 
     acc1 = metric1["accuracy"]*100
     prec1 = metric1["macro avg"]["precision"]*100
-    a.metric("Accuracy", f"{acc1:.2f}%", delta=None, border=True)
-    b.metric("Precision", f"{prec1:.2f}%", delta=None, border=True)
+    a.metric("Accuracy", f"{acc1}%", delta=None, border=True)
+    b.metric("Precision", f"{prec1}%", delta=None, border=True)
 
-    c.metric("Humidity", "77%", "5%", border=True)
-    d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
+    rec1 = metric1["macro avg"]["recall"]*100
+    fsc1 = metric1["macro avg"]["f1-score"]*100
+    c.metric("Recall", f"{rec1}%"rec1, delta=None, border=True)
+    d.metric("F1-Score", f"{fsc1}%", delta=None, border=True)
