@@ -25,6 +25,6 @@ petwid = st.number_input("Petal Width", min_value=0.0, max_value=8.0, value=2.0)
 if st.button("Prediksi"):
     input_data = pd.DataFrame([[seplen, sepwid, petlen, petwid]],
                               columns=["sepal.length", "sepal.width", "petal.length", "petal.width"])
-    
+    st.dataframe(input_data)
     hasil = model.predict(input_data)
     st.success(f"Hasil Prediksi: {hasil[0]}")
