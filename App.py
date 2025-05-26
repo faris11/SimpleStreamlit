@@ -39,3 +39,6 @@ st.subheader("Korelasi antar Fitur dalam Dataset")
 name = st.text_input("Siapa nama Anda?")
 if name:
     st.success(f"Halo, {name}! 👋")
+
+age = st.slider("How old are you?", 0, 130, 25)
+st.write("I'm ", age, "years old")
